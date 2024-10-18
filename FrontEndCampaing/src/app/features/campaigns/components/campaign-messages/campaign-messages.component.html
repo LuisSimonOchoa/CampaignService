@@ -1,0 +1,41 @@
+<div *ngIf="errorMessage" class="text-red-500 font-bold text-center py-4">
+    {{ errorMessage }}
+</div>
+
+<div *ngIf="loading" class="flex justify-center items-center py-4">
+    <svg class="animate-spin h-10 w-10 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12c0 4.418 3.582 8 8 8s8-3.582 8-8H4z"></path>
+    </svg>
+  </div>
+  
+  <div *ngIf="!loading && messages.length > 0" class="overflow-x-auto">
+    <h2 class="text-xl font-bold text-center mb-4">Mensajes de la Campaña</h2>
+    <table class="min-w-full bg-white border-collapse border border-gray-200">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="py-2 px-4 border border-gray-300 text-left">Assigned Phone</th>
+          <th class="py-2 px-4 border border-gray-300 text-left">Text Message</th>
+          <th class="py-2 px-4 border border-gray-300 text-left">Process Date</th>
+          <th class="py-2 px-4 border border-gray-300 text-left">Shipping Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let message of messages" class="border-b border-gray-300">
+          <td class="py-2 px-4 border border-gray-300">{{ message.phone }}</td>
+          <td class="py-2 px-4 border border-gray-300">{{ message.text }}</td>
+          <td class="py-2 px-4 border border-gray-300">{{ message.process_date | date: 'medium' }}</td>
+          <td class="py-2 px-4 border border-gray-300">
+            <span [ngClass]="{
+              'text-yellow-500 font-semibold': message.shipping_status === 1,
+              'text-green-500 font-semibold': message.shipping_status === 2,
+              'text-red-500 font-semibold': message.shipping_status === 3
+            }">
+              {{ getStatusDescription(message.shipping_status) }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

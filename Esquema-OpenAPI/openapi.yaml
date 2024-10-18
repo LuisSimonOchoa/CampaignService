@@ -1,0 +1,167 @@
+openapi: 3.0.0
+info:
+  title: Campaign Management API
+  description: API para gestionar y simular el envío de campañas de marketing.
+  version: 1.0.0
+paths:
+  /campaigns:
+    post:
+      summary: Crear una nueva campaña.
+      description: Crea una campaña con una lista de números de celular y el texto del mensaje.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Nombre de la campaña.
+                process_date:
+                  type: string
+                  format: date
+                  description: Fecha en que se procesará la campaña.
+                process_hour:
+                  type: string
+                  format: time
+                  description: Hora en que se procesará la campaña.
+                phone_list:
+                  type: array
+                  items:
+                    type: string
+                  description: Lista de números de teléfono para enviar mensajes.
+                message_text:
+                  type: string
+                  description: Texto del mensaje.
+      responses:
+        '201':
+          description: Campaña creada con éxito.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+
+    get:
+      summary: Listar campañas filtradas por fechas.
+      description: Devuelve una lista de campañas dentro de un rango de fechas.
+      parameters:
+        - in: query
+          name: start_date
+          schema:
+            type: string
+            format: date
+            description: Fecha de inicio del rango.
+        - in: query
+          name: end_date
+          schema:
+            type: string
+            format: date
+            description: Fecha de fin del rango.
+      responses:
+        '200':
+          description: Lista de campañas obtenida con éxito.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Campaign'
+  
+  /campaigns/{id}:
+    get:
+      summary: Obtener el estado de una campaña.
+      description: Obtiene los detalles de una campaña específica.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID de la campaña.
+      responses:
+        '200':
+          description: Campaña encontrada.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+  
+  /campaigns/{id}/send:
+    post:
+      summary: Simular el envío de la campaña.
+      description: Inicia el proceso de envío de la campaña a la lista de números de celular.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID de la campaña.
+      responses:
+        '200':
+          description: Proceso de envío iniciado.
+  
+  /campaigns/{id}/messages:
+    get:
+      summary: Obtener mensajes de una campaña.
+      description: Obtiene los mensajes asociados a una campaña.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID de la campaña.
+      responses:
+        '200':
+          description: Mensajes obtenidos con éxito.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message'
+
+components:
+  schemas:
+    Campaign:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        process_date:
+          type: string
+          format: date
+        process_hour:
+          type: string
+          format: time
+        process_status:
+          type: integer
+        phone_list:
+          type: array
+          items:
+            type: string
+        message_text:
+          type: string
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+        campaign_id:
+          type: integer
+        phone:
+          type: string
+        text:
+          type: string
+        shipping_status:
+          type: integer
+        process_date:
+          type: string
+          format: date
+        process_hour:
+          type: string
+          format: time

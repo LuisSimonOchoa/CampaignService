@@ -1,0 +1,3 @@
+urls:
+  - url: "/api-docs/openapi.yaml"
+    name: "My API Documentation"

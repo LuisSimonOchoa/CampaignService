@@ -1,0 +1,15 @@
+<!-- navbar.component.html -->
+<nav class="bg-blue-500 text-white p-4">
+    <div class="container mx-auto">
+      <h1 class="text-2xl">Campaign Marketing System</h1>
+      <ul class="flex space-x-4">
+        <li><a routerLink="/campaigns" class="hover:underline cursor-pointer">Campaigns</a></li>
+        <li><a routerLink="/" class="hover:underline cursor-pointer">Home</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="container mx-auto mt-8">
+    <router-outlet></router-outlet> <!-- Aquí se renderizan los componentes hijos -->
+  </div>
+  

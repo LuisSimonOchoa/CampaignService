@@ -1,0 +1,5 @@
+POST - https://ek6zl34s57.execute-api.us-east-1.amazonaws.com/dev/campaigns
+GET - https://ek6zl34s57.execute-api.us-east-1.amazonaws.com/dev/hello
+GET - https://ek6zl34s57.execute-api.us-east-1.amazonaws.com/dev/campaigns
+GET - https://ek6zl34s57.execute-api.us-east-1.amazonaws.com/dev/campaigns/{id}/messages
+POST - https://ek6zl34s57.execute-api.us-east-1.amazonaws.com/dev/campaigns/{id}/send
