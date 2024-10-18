@@ -17,3 +17,5 @@ Los diseños de los endpoints se realizaron con [OpenAPI](https://www.openapis.o
 
    ```bash
    docker build -t my-swagger-ui .
+   ```bash
+   docker run -p 8080:8080 my-swagger-ui
