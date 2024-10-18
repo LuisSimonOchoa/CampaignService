@@ -39,3 +39,17 @@ Para desplegar el Backend en un entorno serverless, deberá utilizar el [Serverl
    ```bash
    npm install -g serverless
    serverless deploy
+
+## Despliegue del Frontend
+
+Los archivos del frontend se encuentran en la carpeta `FrontEndCampaing`, la cual fue desarrollada con [Angular](https://angular.io/). 
+
+### Instrucciones para Desplegar
+
+Para desplegar el frontend, siga estos pasos:
+
+1. Navegue hasta la carpeta `FrontEndCampaing`:
+
+   ```bash
+   npm install
+   ng serve
