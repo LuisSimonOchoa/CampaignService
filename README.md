@@ -39,6 +39,7 @@ Para desplegar el Backend en un entorno serverless, deberá utilizar el [Serverl
    ```bash
    npm install -g serverless
    serverless deploy
+![image](https://github.com/user-attachments/assets/f3c41e19-12a7-4e1f-85d6-4a3d7daa8e64)
 
 ## Despliegue del Frontend
 
