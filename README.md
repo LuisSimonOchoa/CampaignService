@@ -19,3 +19,25 @@ Los diseños de los endpoints se realizaron con [OpenAPI](https://www.openapis.o
    docker build -t my-swagger-ui .
    ```bash
    docker run -p 8080:8080 my-swagger-ui
+
+## Despliegue del Backend Serverless
+
+Para desplegar el Backend en un entorno serverless, deberá utilizar el [Serverless Framework](https://www.serverless.com/). Los archivos necesarios para la implementación se encuentran en la carpeta `BackendServerless`.
+
+### Configuración del Proyecto
+
+- **Librería MySQL**: Puede añadir la librería `mysql` en una capa para que las funciones Lambda puedan consumirla de manera eficiente. Esto ayudará a mantener el tamaño del paquete de despliegue de las funciones Lambda más pequeño, ya que la capa se puede reutilizar en varias funciones.
+
+- **Archivo `serverless.yml`**: Este archivo se utiliza para definir y construir los endpoints utilizando API Gateway. En él, puede configurar los recursos, las funciones y los permisos necesarios para su aplicación.
+
+- **Archivo `handler.js`**: Este archivo contiene la lógica de las funciones Lambda. Aquí es donde implementará la funcionalidad necesaria para manejar las solicitudes a los endpoints definidos en el archivo `serverless.yml`.
+
+### Instrucciones para Desplegar
+
+1. Asegúrese de tener [Node.js](https://nodejs.org/) y [npm](https://www.npmjs.com/) instalados en su máquina.
+2. Instale el Serverless Framework globalmente utilizando el siguiente comando:
+
+   ```bash
+   npm install -g serverless
+   ```bash
+   serverless deploy
