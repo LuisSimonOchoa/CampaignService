@@ -53,3 +53,5 @@ Para desplegar el frontend, siga estos pasos:
    ```bash
    npm install
    ng serve
+![image](https://github.com/user-attachments/assets/0b38e517-ec1a-45c7-bc59-7b59bb950725)
+
