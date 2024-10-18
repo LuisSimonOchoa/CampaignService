@@ -17,7 +17,6 @@ Los diseños de los endpoints se realizaron con [OpenAPI](https://www.openapis.o
 
    ```bash
    docker build -t my-swagger-ui .
-   ```bash
    docker run -p 8080:8080 my-swagger-ui
 
 ## Despliegue del Backend Serverless
@@ -39,5 +38,4 @@ Para desplegar el Backend en un entorno serverless, deberá utilizar el [Serverl
 
    ```bash
    npm install -g serverless
-   ```bash
    serverless deploy
