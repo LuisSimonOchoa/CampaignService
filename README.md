@@ -31,7 +31,7 @@ Para desplegar el Backend en un entorno serverless, deberá utilizar el [Serverl
 
 - **Archivo `handler.js`**: Este archivo contiene la lógica de las funciones Lambda. Aquí es donde implementará la funcionalidad necesaria para manejar las solicitudes a los endpoints definidos en el archivo `serverless.yml`.
 
-- **endpoints.txt**: En esta carpeta, encontrará el archivo `endpoints.txt`, que contiene una lista de algunos endpoints desplegados que pueden ser útiles para realizar pruebas.
+- **endpoints**: En esta carpeta, encontrará el archivo `endpoints.txt`, que contiene una lista de algunos endpoints desplegados que pueden ser útiles para realizar pruebas.
 
 ### Instrucciones para Desplegar
 
